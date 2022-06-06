@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region PRIVATE VARIABLES
-
+    
     #endregion
     #region SINGLETON CLASS
     private static GameManager instance;
@@ -28,11 +28,21 @@ public class GameManager : MonoBehaviour
     #region PUBLIC METHODS
     public void ActivatingSuperPower(GameObject obj)
     {
-        obj.transform.localScale += Vector3.one;
+        obj.transform.localScale += Vector3.one;          //Increasing the size of the player
     }
     public void ActivatingMegaPower(GameObject obj)
     {
-        // Blue colour Particle effect for player 
+        
+        Physics2D.IgnoreLayerCollision(3, 7);       //Ignoring the collision between enemy and player
+        StartCoroutine("StartingPower",obj);
+      
+    }
+    IEnumerator StartingPower(GameObject obj)
+    {
+
+        yield return new WaitForSeconds(5);
+        Physics2D.IgnoreLayerCollision(3, 7,false);    // Making collision active    
+        
     }
     #endregion
 }

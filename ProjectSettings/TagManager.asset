@@ -5,14 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Power
   - SuperPower
   - CheckPoint
+  - MegaPower
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Ground

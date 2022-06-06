@@ -71,13 +71,19 @@ public class Player : MonoBehaviour
         {
             ScoreManager.Instance.Score(2);
         }
-        if(collision.gameObject.tag=="Power")
+        if(collision.gameObject.tag=="SuperPower")
         {
             Destroy(collision.gameObject);
+            //GameManager.Instance.ActivatingSuperPower(this.gameObject);
             GameManager.Instance.ActivatingSuperPower(this.gameObject);
-            //GameManager.Instance.ActivatingMegaPower(this.gameObject);
         }
-      
+        if (collision.gameObject.tag == "MegaPower")
+        {
+            Destroy(collision.gameObject);
+            GameManager.Instance.ActivatingMegaPower(this.gameObject);
+            
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -94,12 +100,12 @@ public class Player : MonoBehaviour
     #region PRIVATE METHODS
     void Movement(Vector2 value)
     {
-        rb.velocity = value * playerSpeed;
+        rb.velocity = value * playerSpeed;          //Player Movement in particular direction
     }
     void Jump()
     {
         IsJump = true;
-        rb.AddForce(Vector2.up * playerJumpForce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * playerJumpForce,ForceMode2D.Impulse); //Applying force in upward direction
         
 
     }
