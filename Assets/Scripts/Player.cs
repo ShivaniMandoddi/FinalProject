@@ -39,15 +39,15 @@ public class Player : MonoBehaviour
     }
     private void OnEnable()
     {
-        controls.Enable();
+        controls.Enable();      // Enabling the player actions
     }
     private void OnDisable()
     {
-        controls.Disable();
+        controls.Disable();  // Disabling the player actions 
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer==Constants.GROUND_LAYER_NUMBER)
+        if(collision.gameObject.layer==Constants.GROUND_LAYER_NUMBER)  //Making jump as false , when player is on ground
         {
             IsJump = false;
         } 
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
-            else if(this.gameObject.transform.localScale.x>1f) // If player have a power
+            else if(this.gameObject.transform.localScale.x>1f)  // If player have a power
             {
                 this.gameObject.transform.localScale = Vector3.one;
             }

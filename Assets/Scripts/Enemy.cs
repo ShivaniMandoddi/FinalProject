@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         }
         else
             i = 0;
-        StartCoroutine("Wander", checkPoints[i].transform.position);
+        StartCoroutine("Wander", checkPoints[i].transform.position);  // Random Wandering between two checkpoints
         
     }
     IEnumerator Wander(Vector3 targetPosition)
